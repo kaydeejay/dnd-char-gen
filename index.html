@@ -26,8 +26,8 @@
                 <label>Character Name
                     <input type="text" placeholder="Enter Character Name Here" aria-describedby="exampleHelpText">
                 </label>
-                <button type="submit float-right" class="button">Save</button>
-                <button type="button float-right" class="button">Edit</button>    
+                <button type="submit" class="button">Save</button>
+                <button type="button" class="button">Edit</button>    
             </form>
         </div>
         <div class="cell small-7">
@@ -139,7 +139,68 @@
         <!-- hp/ac/atk-->
         <div class="cell small-4">
             <div class="grid-y">
-                <div class="cell small-4">ac/init/hp</div>
+                <div class="cell small-4">
+                    <div class="grid-x">
+                        <div class="cell small-4">
+                            <div class="callout">
+                                Armor Class
+                            </div>
+                        </div>
+                        <div class="cell small-4">
+                            <div class="callout">
+                                Hit Points
+                            </div>
+                        </div>
+                        <div class="cell small-4">
+                            <div class="callout">
+                                Speed
+                            </div>
+                        </div>
+                    </div>
+                    <div class="callout">
+                        Max HP: <span class="max-HP"></span>
+                        <form>
+                            <label>
+                                Current HP
+                                <input type="number" value="20">
+                            </label>
+                            <label>
+                                Temporary Hit Points
+                                <input type="number" value="0">
+                            </label>
+                        </form>
+                    </div>
+                    <div class="grid-x">
+                        <div class="cell small-6">
+                            <div class="callout">
+                                Hit Die Type: <span class="hit-die"></span>
+                                <form>
+                                    <label>
+                                        Hit Dice:
+                                        <input type="number" value="1">
+                                    </label>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="cell small-6">
+                            Death Saves
+                            <div class="grid-y">
+                                <fieldset class="cell small-6">
+                                    <legend>Successes</legend>
+                                    <input id="successCheckbox1" type="checkbox">
+                                    <input id="successCheckbox2" type="checkbox">
+                                    <input id="successCheckbox3" type="checkbox">
+                                </fieldset>
+                                <fieldset class="cell small-6">
+                                    <legend>failures</legend>
+                                    <input id="failureCheckbox1" type="checkbox">
+                                    <input id="failureCheckbox2" type="checkbox">
+                                    <input id="failureCheckbox3" type="checkbox">
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="cell small-4">attacks/spellcasting</div>
                 <div class="cell small-4">equipment</div>
             </div>
