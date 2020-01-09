@@ -1,3 +1,18 @@
+div {
+    border: 15px;
+    margin: 30px;
+    padding: 20px;
+}
 
-  
+
+
+h1 {
+    text-align: center;
+}
+
+.submit {
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
   
