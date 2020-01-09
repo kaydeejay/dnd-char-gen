@@ -12,8 +12,8 @@ crossorigin="anonymous">
 
 <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
+<link rel="javascript" type="text/script" href="script.js">
 <!-- Compressed JavaScript -->
-
 </head>
 <body>
     <!-- Starter page: step 1 -->
@@ -77,5 +77,32 @@ crossorigin="anonymous">
         </div>
         
     <button class="button" href="#">Submit</button>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+$(document).ready(function(){
+    var classes;
+    var races;
+
+$.ajax({
+    url: "https://api.open5e.com/classes/?format=json",
+    method: "GET"
+  }).then(function(response) {
+    classes=response;
+  });
+
+$.ajax({
+    url: "https://api.open5e.com/races/",
+    method: "GET"
+  }).then(function(response) {
+    races=response;
+  });
+  console.log(races);
+  console.log(classes);
+});
+
+
+    </script>
     </body>
 </html>
