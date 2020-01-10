@@ -1,6 +1,8 @@
 $(document).ready(function(){
     $(document).foundation();
 
+    var dropDownPanes = $(".dropdown-pane");
+
     $("#randomStats").on("click", function(){
         var d6Vals = [];
         var statRolls = [];
@@ -22,7 +24,7 @@ $(document).ready(function(){
             for (var i=0; i< statRolls.length; i++){
                 statRollTotals.push(statRolls[i].reduce(getSum, 0));
             }
-            console.log(statRollTotals);
+            // display the stat roll results in the "roll for stats" divs
             populateRandStats(statRollTotals);
         });
     });
@@ -50,5 +52,18 @@ $(document).ready(function(){
     function getSum(total, num) {
       return total + num;
     }
+
+    // append buttons for each stat to all dropdowns
+    // add event listener to all the dropdowns
+    // add avent listener to all dropdown buttons
+    // when clicked, change text of the callout <p> to the chosen stat
+    // add a "clear" button
+    //   when clicked, reset text to "click to assign stat"
+
+    
+    console.log(dropDownPanes);
+    for (var i = 0; i < dropDownPanes.length; i++);
+        
+
 
 });
