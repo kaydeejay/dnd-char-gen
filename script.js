@@ -1,8 +1,29 @@
 $(document).ready(function(){
     $(document).foundation();
 
-    var dropDownPanes = $(".dropdown-pane");
+    var randDropDownPanes = $(".rand-dd");
+    // var randStats = ["STR", "DEX", "CON", "INT", "WIS", "CHA"];
 
+    addDropdownButtons();
+    function addDropdownButtons(){
+        var randStats = ["STR", "DEX", "CON", "INT", "WIS", "CHA"];
+        for (var i=0; i<randStats.length; i++){
+            var newStatButton = $("<button>");
+            $(newStatButton).addClass("button");
+            $(newStatButton).html(randStats[i]);
+            $(newStatButton).on("click", btnToStat);
+            $(randDropDownPanes).append(newStatButton);
+        }
+    }
+
+    function btnToStat(){
+        var chosenStat = $(this).html();
+        var ancestCallout = $(this).parent().parent().children()[0];
+        var uncleSpan = $(ancestCallout).children()[0];
+        $(uncleSpan).text(": " + chosenStat);
+    }
+
+    // generate random stat values when the "roll" button is clicked
     $("#randomStats").on("click", function(){
         var d6Vals = [];
         var statRolls = [];
@@ -35,9 +56,9 @@ $(document).ready(function(){
             // console.log($(rolledStatDivs[i]).children()[0]);
             var currentStatEl = $(rolledStatDivs[i]).children()[0];
             var currentStatVal = arr[i];
-            var dropDownText = $("<p>");
+            var dropDownText = $("<span>");
             $(currentStatEl).text(currentStatVal);
-            $(dropDownText).text("Click to Assign a Stat");
+            $(dropDownText).text(": Click to Assign a Stat");
             $(currentStatEl).append(dropDownText);
         }
     }
@@ -52,18 +73,5 @@ $(document).ready(function(){
     function getSum(total, num) {
       return total + num;
     }
-
-    // append buttons for each stat to all dropdowns
-    // add event listener to all the dropdowns
-    // add avent listener to all dropdown buttons
-    // when clicked, change text of the callout <p> to the chosen stat
-    // add a "clear" button
-    //   when clicked, reset text to "click to assign stat"
-
-    
-    console.log(dropDownPanes);
-    for (var i = 0; i < dropDownPanes.length; i++);
-        
-
-
+ 
 });
