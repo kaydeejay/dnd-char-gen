@@ -17,38 +17,45 @@
     <div class="grid-container">
         <div class="grid-x grid-margin-x">
             <div class="cell small-4">
+                Roll for Stats:
+                <button class="expanded button" id="randomStats">Roll</button>
                 <div class="grid-y" id="rolledStats">
                     <div class="cell small-2">
-                        <div class="callout">
-                            Strength
+                        <div class="callout" data-toggle="rand-str-dropdown"></div>
+                        <div class="dropdown-pane" id="rand-str-dropdown" data-dropdown>
+                            15, 14, 13, 12, 10, 8
                         </div>
                     </div>
                     <div class="cell small-2">
-                        <div class="callout">
-                            Dexterity
+                        <div class="callout" data-toggle="rand-dex-dropdown"></div>
+                        <div class="dropdown-pane" id="rand-dex-dropdown" data-dropdown>
+                            15, 14, 13, 12, 10, 8
                         </div>
                     </div>
                     <div class="cell small-2">
-                        <div class="callout">
-                            Constitution
+                        <div class="callout" data-toggle="rand-con-dropdown"></div>
+                        <div class="dropdown-pane" id="rand-con-dropdown" data-dropdown>
+                            15, 14, 13, 12, 10, 8
                         </div>
                     </div>
                     <div class="cell small-2">
-                        <div class="callout">
-                            Intelligence
+                        <div class="callout" data-toggle="rand-int-dropdown"></div>
+                        <div class="dropdown-pane" id="rand-int-dropdown" data-dropdown>
+                            15, 14, 13, 12, 10, 8
                         </div>
                     </div>
                     <div class="cell small-2">
-                        <div class="callout">
-                            Wisdom
+                        <div class="callout" data-toggle="rand-wis-dropdown"></div>
+                        <div class="dropdown-pane" id="rand-wis-dropdown" data-dropdown>
+                            15, 14, 13, 12, 10, 8
                         </div>
                     </div>
                     <div class="cell small-2">
-                        <div class="callout">
-                            Charisma
+                        <div class="callout" data-toggle="rand-cha-dropdown"></div>
+                        <div class="dropdown-pane" id="rand-cha-dropdown" data-dropdown>
+                            15, 14, 13, 12, 10, 8
                         </div>
                     </div>
-                    <button class="button" id="randomStats">Roll</button>
                 </div>
             </div>
 
@@ -94,7 +101,8 @@
                 </div>
             </div>
 
-            <div class="cell small-4">                
+            <div class="cell small-4">
+                Point Buy:                
                 <div class="callout text-center">27</div>
                 <div class="grid-x">
                     <div class="cell small-4">
