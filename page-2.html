@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Generate Stats</title>
+    <link 
+        rel="stylesheet" 
+        href="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/css/foundation.min.css" 
+        integrity="sha256-GSio8qamaXapM8Fq9JYdGNTvk/dgs+cMLgPeevOYEx0= sha384-wAweiGTn38CY2DSwAaEffed6iMeflc0FMiuptanbN4J+ib+342gKGpvYRWubPd/+ sha512-QHEb6jOC8SaGTmYmGU19u2FhIfeG+t/hSacIWPpDzOp5yygnthL3JwnilM7LM1dOAbJv62R+/FICfsrKUqv4Gg==" 
+        crossorigin="anonymous"
+    >
+</head>
+<body>
+​
+    <div class="grid-container">
+        <div class="grid-x grid-margin-x">
+            <div class="cell small-4">
+                <div class="grid-y" id="rolledStats">
+                    <div class="cell small-2">
+                        <div class="callout">
+                            Strength
+                        </div>
+                    </div>
+                    <div class="cell small-2">
+                        <div class="callout">
+                            Dexterity
+                        </div>
+                    </div>
+                    <div class="cell small-2">
+                        <div class="callout">
+                            Constitution
+                        </div>
+                    </div>
+                    <div class="cell small-2">
+                        <div class="callout">
+                            Intelligence
+                        </div>
+                    </div>
+                    <div class="cell small-2">
+                        <div class="callout">
+                            Wisdom
+                        </div>
+                    </div>
+                    <div class="cell small-2">
+                        <div class="callout">
+                            Charisma
+                        </div>
+                    </div>
+                    <button class="button" id="randomStats">Roll</button>
+                </div>
+            </div>
+
+            <div class="cell small-4">
+​                Standard Array
+                <div class="grid-y">
+                    <div class="cell small-2">
+                        <button class="button" type="button" data-toggle="str-dropdown">Strength</button>
+                        <div class="dropdown-pane" id="str-dropdown" data-dropdown>
+                            15, 14, 13, 12, 10, 8
+                        </div>
+                    </div>
+                    <div class="cell small-2">
+                        <button class="button" type="button" data-toggle="dex-dropdown">Dexterity</button>
+                        <div class="dropdown-pane" id="dex-dropdown" data-dropdown>
+                            15, 14, 13, 12, 10, 8
+                        </div>
+                    </div>
+                    <div class="cell small-2">
+                        <button class="button" type="button" data-toggle="con-dropdown">Constitution</button>
+                        <div class="dropdown-pane" id="con-dropdown" data-dropdown>
+                            15, 14, 13, 12, 10, 8
+                        </div>
+                    </div>
+                    <div class="cell small-2">
+                        <button class="button" type="button" data-toggle="int-dropdown">Intelligence</button>
+                        <div class="dropdown-pane" id="int-dropdown" data-dropdown>
+                            15, 14, 13, 12, 10, 8
+                        </div>
+                    </div>
+                    <div class="cell small-2">
+                        <button class="button" type="button" data-toggle="wis-dropdown">Wisdom</button>
+                        <div class="dropdown-pane" id="wis-dropdown" data-dropdown>
+                            15, 14, 13, 12, 10, 8
+                        </div>
+                    </div>
+                    <div class="cell small-2">
+                        <button class="button" type="button" data-toggle="cha-dropdown">Charisma</button>
+                        <div class="dropdown-pane" id="cha-dropdown" data-dropdown>
+                            15, 14, 13, 12, 10, 8
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cell small-4">                
+                <div class="callout text-center">27</div>
+                <div class="grid-x">
+                    <div class="cell small-4">
+                        <button class="button">-</button>
+                    </div>
+                    <div class="cell small-4">
+                        attr <span>score</span>
+                    </div>
+                    <div class="cell small-4">
+                        <button class="button">+</button>
+                    </div>
+                </div>
+                <div class="grid-x">
+                    <div class="cell small-4">
+                        <button class="button">-</button>
+                    </div>
+                    <div class="cell small-4">
+                        attr <span>score</span>
+                    </div>
+                    <div class="cell small-4">
+                        <button class="button">+</button>
+                    </div>
+                </div>
+                <div class="grid-x">
+                    <div class="cell small-4">
+                        <button class="button">-</button>
+                    </div>
+                    <div class="cell small-4">
+                        attr <span>score</span>
+                    </div>
+                    <div class="cell small-4">
+                        <button class="button">+</button>
+                    </div>
+                </div>
+                <div class="grid-x">
+                    <div class="cell small-4">
+                        <button class="button">-</button>
+                    </div>
+                    <div class="cell small-4">
+                        attr <span>score</span>
+                    </div>
+                    <div class="cell small-4">
+                        <button class="button">+</button>
+                    </div>
+                </div>
+                <div class="grid-x">
+                    <div class="cell small-4">
+                        <button class="button">-</button>
+                    </div>
+                    <div class="cell small-4">
+                        attr <span>score</span>
+                    </div>
+                    <div class="cell small-4">
+                        <button class="button">+</button>
+                    </div>
+                </div>
+                <div class="grid-x">
+                    <div class="cell small-4">
+                        <button class="button">-</button>
+                    </div>
+                    <div class="cell small-4">
+                        attr <span>score</span>
+                    </div>
+                    <div class="cell small-4">
+                        <button class="button">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script
+		src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
+    <script 
+        src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js" 
+        integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA==" crossorigin="anonymous">
+    </script>
+    <script src="./script.js"></script>
+</body>
+</html>
