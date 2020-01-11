@@ -60,7 +60,9 @@ $(document).ready(function(){
             $(currentStatEl).append(statSelectForm);
             $(statSelectForm).append(statSelectFormLabel);
             $(statSelectForm).append(statSelectFormSel);
-            // $(statSelectFormSel).change(disableSelected);
+            
+            populateDropdowns();
+            $(statSelectFormSel).change(populateDropdowns);
         }
     }
     
@@ -73,6 +75,10 @@ $(document).ready(function(){
     
     function getSum(total, num) {
         return total + num;
+    }
+
+    function populateDropdowns(){
+        var dropDowns = $
     }
     
     /*function disableSelected(){
