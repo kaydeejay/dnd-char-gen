@@ -6,10 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>D&D Character Generator</title>
     <!-- Compressed CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/css/foundation.min.css" 
-    integrity="sha256-GSio8qamaXapM8Fq9JYdGNTvk/dgs+cMLgPeevOYEx0= sha384-wAweiGTn38CY2DSwAaEffed6iMeflc0FMiuptanbN4J+ib+342gKGpvYRWubPd/+ sha512-QHEb6jOC8SaGTmYmGU19u2FhIfeG+t/hSacIWPpDzOp5yygnthL3JwnilM7LM1dOAbJv62R+/FICfsrKUqv4Gg==" 
-    crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link 
+        rel="stylesheet" 
+        href="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/css/foundation.min.css" 
+        integrity="sha256-GSio8qamaXapM8Fq9JYdGNTvk/dgs+cMLgPeevOYEx0= sha384-wAweiGTn38CY2DSwAaEffed6iMeflc0FMiuptanbN4J+ib+342gKGpvYRWubPd/+ sha512-QHEb6jOC8SaGTmYmGU19u2FhIfeG+t/hSacIWPpDzOp5yygnthL3JwnilM7LM1dOAbJv62R+/FICfsrKUqv4Gg==" 
+        crossorigin="anonymous"
+    >
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 </head>
 <body>
     <!-- Starter page: step 1 -->
@@ -84,37 +87,46 @@
 
     <!-- Compressed JavaScript -->
     <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/foundationsites@6.4.3/dist/js/foundation.min.js" integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA==" 
-    crossorigin="anonymous"></script> 
+		src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
+    <script 
+        src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js" 
+        integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA==" crossorigin="anonymous">
+    </script>
     
-<script type="text/javascript">
-    let classes;
-    let races;
-
-    $.ajax({
-        url: "https://api.open5e.com/races/",
-        method: "GET"
-    }).then(function(response) {
-        races = response;
-        console.log(races);
-    });
-        $.ajax({
-            url: "https://api.open5e.com/classes/",
-            method: "GET"
-        }).then(function(response) {
-            classes = response;
-    });
-
-    var modalTitle = $("#modalTitle");
-
+<script>
+    
     $(document).ready(function() {
         $(document).foundation();
+        
+        let races;
+        let classes; 
+
+        $.ajax({
+            url: "https://api.open5e.com/races/",
+            method: "GET"
+        }).then(function(response) {
+            races = response;
+            console.log(races);
+        }).then($.ajax({
+            url: "https://api.open5e.com/classes/",
+            method: "GET"
+        })).then(function(response) {
+            classes = response;
+        }).then(function(response){
+    
+        var modalTitle = $("#modalTitle");
+        // var raceInfo = {
+            // name,desc,alignment,traits};
 
         var raceInfo = {
-        name,desc,alignment,traits};
+            name: races.name,
+            desc: races.desc,
+            alignment: races.alignment,
+            traits: races.traits
+        };
 
         $(".modalTitle").text(raceInfo.name);
         $(".body").text(raceInfo.desc);
@@ -150,9 +162,9 @@
             }
         }
     });
+});
 
 </script>
-<link rel="javascript" type="text/script" href="script.js">
 
 </body>
 </html>
