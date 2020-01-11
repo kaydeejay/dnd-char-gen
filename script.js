@@ -3,7 +3,7 @@ $(document).ready(function(){
 
     var randDropDownPanes = $(".rand-dd");
     var randStatCalloutEls = $(".rand-callout")
-    var statTypes = ["STR", "DEX", "CON", "INT", "WIS", "CHA"];
+    var statTypes = ["STR", "DEX", "CON", "INT", "WIS", "CHA", "blank"];
 
     // add event listener to all callouts
     $(randStatCalloutEls).on("click", populateButtons);
@@ -31,20 +31,21 @@ $(document).ready(function(){
             }
             // display the stat roll results in the "roll for stats" divs
             populateRandStats(statRollTotals);
-            // populateButtons(randDropDownPanes);
         });
     });
     
     function populateRandStats(arr){
         var rolledStatDivs = $("#rolledStats").children();
         for (var i=0; i<rolledStatDivs.length; i++){
-            // console.log($(rolledStatDivs[i]).children()[0]);
             var currentStatEl = $(rolledStatDivs[i]).children()[0];
             var currentStatVal = arr[i];
-            var dropDownText = $("<span>");
-            $(currentStatEl).text(currentStatVal);
-            $(dropDownText).text(": Click to Assign a Stat");
-            $(currentStatEl).append(dropDownText);
+            var calloutStatVal = $("<span>");
+            var calloutText = $("<span>");
+            $(calloutText).addClass("callout-text");
+            $(calloutStatVal).text(currentStatVal);
+            $(calloutText).text(": Click to Assign a Stat");
+            $(currentStatEl).append(calloutStatVal);
+            $(currentStatEl).append(calloutText);
         }
     }
     
@@ -60,36 +61,40 @@ $(document).ready(function(){
     }
 
     function populateButtons(){
-        // for (var i=0; i<obj.length; i++){}
-        console.log(this);
         var btnVals = statTypes;
-        var siblingCallout = $(this).parent().children()[1];
-        console.log(btnVals);
+        var siblingDropdown = $(this).parent().children()[1];
+        // var siblingCallout = $(this).parent().children()[0];
+        
+        // find the values of all the callout texts, to search for already 
+        // assigned stats
+        var allCalloutTexts = $(".callout-text");
+        // loop through the callout texts and remove those values from btnVals
+        for (var i=0; i<allCalloutTexts.length; i++){
+            var currentVal = $(allCalloutTexts[i]).text();
+            var indexInBtnVals = btnVals.indexOf(currentVal);
+            if (indexInBtnVals > -1){
+                btnVals.splice(indexInBtnVals, 1);
+            }
+        }
+        // console.log(allCalloutTexts);
+        // var disabledButtons = findDisabled();
+        $(siblingDropdown).empty();
         for (var i=0; i<btnVals.length; i++){
             var newStatButton = $("<button>");
             $(newStatButton).addClass("button");
             $(newStatButton).html(btnVals[i]);
-            $(siblingCallout).append(newStatButton);
+            $(siblingDropdown).append(newStatButton);
+            $(newStatButton).on("click", btnToStat);
         }
     }
     
 });
 
-// addDropdownButtons();
-// function addDropdownButtons(){
-//     var randStats = ["STR", "DEX", "CON", "INT", "WIS", "CHA"];
-//     for (var i=0; i<randStats.length; i++){
-//         var newStatButton = $("<button>");
-//         $(newStatButton).addClass("button");
-//         $(newStatButton).html(randStats[i]);
-//         $(newStatButton).on("click", btnToStat);
-//         $(randDropDownPanes).append(newStatButton);
-//     }
-// }
-
-// function btnToStat(){
-//     var chosenStat = $(this).html();
-//     var ancestCallout = $(this).parent().parent().children()[0];
-//     var uncleSpan = $(ancestCallout).children()[0];
-//     $(uncleSpan).text(": " + chosenStat);
-// }
+function btnToStat(){
+    var chosenStat = $(this).html();
+    // console.log(chosenStat);
+    var ancestCallout = $(this).parent().parent().children()[0];
+    // console.log(ancestCallout);
+    var uncleSpan = $(ancestCallout).children()[1];
+    $(uncleSpan).text(": " + chosenStat);
+}
