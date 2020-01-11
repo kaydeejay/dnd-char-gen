@@ -44,7 +44,8 @@ $(document).ready(function(){
             var statSelectFormLabel = $("<label>");
             var statSelectFormSel = $("<select>");
             $(statSelectFormSel).addClass("dropdown-input");
-            
+
+            /*
             // make a dropdown option for each stat type:
             for (var j=0; j<statTypes.length; j++){
                 var statOption = $("<option>");
@@ -53,14 +54,18 @@ $(document).ready(function(){
                 $(statOption).text(statTypes[j]);
                 $(statSelectFormSel).append(statOption);
             }
+            */
             
             $(currentStatDisplay).text(currentStatVal);
-            $(statSelectFormLabel).text("Assign this Score to a Stat:");
+            $(statSelectFormLabel).text("Assign a Stat to This Score:");
             $(currentStatEl).append(currentStatDisplay);
             $(currentStatEl).append(statSelectForm);
             $(statSelectForm).append(statSelectFormLabel);
-            $(statSelectForm).append(statSelectFormSel);   
+            $(statSelectForm).append(statSelectFormSel);
+            
+            $(statSelectFormSel).change(populateButtons);
         }
+        populateButtons();
     }
     
     function dropLowest(arr) {
@@ -72,6 +77,23 @@ $(document).ready(function(){
     
     function getSum(total, num) {
         return total + num;
+    }
+
+    function populateButtons(){
+        // store already selected values
+        var alreadySelected = [];
+        var dropDowns = $(".dropdown-input");
+        for (var i=0; i<dropDowns.length; i++){
+            alreadySelected.push($(dropDowns[i]).val());
+        }
+        // loop through the statTypes array and make a dropdown option for each one
+        for (var i=0; i<statTypes.length; i++){
+            // don't allow the option to disable the "-" option
+            if (statTypes[i] !== "-"){
+                if (alreadySelected.indexOf(statTypes[i]))
+            }
+        }
+        
     }
     
     // Below this line is the "function graveyard."
