@@ -1,12 +1,9 @@
 $(document).ready(function(){
     $(document).foundation();
 
-    var randDropDownPanes = $(".rand-dd");
     var randStatCalloutEls = $(".rand-callout")
-    var statTypes = ["STR", "DEX", "CON", "INT", "WIS", "CHA", "blank"];
+    var statTypes = ["-", "STR", "DEX", "CON", "INT", "WIS", "CHA"];
 
-    // add event listener to all callouts
-    $(randStatCalloutEls).on("click", populateButtons);
     // generate random stat values when the "roll" button is clicked
     $("#randomStats").on("click", function(){
         var d6Vals = [];
@@ -38,14 +35,32 @@ $(document).ready(function(){
         var rolledStatDivs = $("#rolledStats").children();
         for (var i=0; i<rolledStatDivs.length; i++){
             var currentStatEl = $(rolledStatDivs[i]).children()[0];
+            // empty previous roll (if user presses "roll" twice)
+            // everyone gets a crummy roll sometimes!
+            $(currentStatEl).empty();
             var currentStatVal = arr[i];
-            var calloutStatVal = $("<span>");
-            var calloutText = $("<span>");
-            $(calloutText).addClass("callout-text");
-            $(calloutStatVal).text(currentStatVal);
-            $(calloutText).text(": Click to Assign a Stat");
-            $(currentStatEl).append(calloutStatVal);
-            $(currentStatEl).append(calloutText);
+            var currentStatDisplay = $("<span>");
+            var statSelectForm = $("<form>");
+            var statSelectFormLabel = $("<label>");
+            var statSelectFormSel = $("<select>");
+            $(statSelectFormSel).addClass("dropdown-input");
+            /*
+            // make a dropdown option for each stat type:
+            for (var j=0; j<statTypes.length; j++){
+                var statOption = $("<option>");
+                $(statOption).attr("value", statTypes[j]);
+                $(statOption).attr("class", "stat-select-option");
+                $(statOption).text(statTypes[j]);
+                $(statSelectFormSel).append(statOption);
+            }
+            */
+            $(currentStatDisplay).text(currentStatVal);
+            $(statSelectFormLabel).text("Assign this Score to a Stat:");
+            $(currentStatEl).append(currentStatDisplay);
+            $(currentStatEl).append(statSelectForm);
+            $(statSelectForm).append(statSelectFormLabel);
+            $(statSelectForm).append(statSelectFormSel);
+            // $(statSelectFormSel).change(disableSelected);
         }
     }
     
@@ -59,42 +74,45 @@ $(document).ready(function(){
     function getSum(total, num) {
         return total + num;
     }
-
-    function populateButtons(){
-        var btnVals = statTypes;
-        var siblingDropdown = $(this).parent().children()[1];
-        // var siblingCallout = $(this).parent().children()[0];
-        
-        // find the values of all the callout texts, to search for already 
-        // assigned stats
-        var allCalloutTexts = $(".callout-text");
-        // loop through the callout texts and remove those values from btnVals
-        for (var i=0; i<allCalloutTexts.length; i++){
-            var currentVal = $(allCalloutTexts[i]).text();
-            var indexInBtnVals = btnVals.indexOf(currentVal);
-            if (indexInBtnVals > -1){
-                btnVals.splice(indexInBtnVals, 1);
+    
+    /*function disableSelected(){
+        var dropdownInputs = $(".dropdown-input");
+        var thisVal = $(this).val();
+        // var dropdownOptions = $(".stat-select-option");
+        var alreadySelected = [];
+        for (var i=0; i<dropdownInputs.length; i++){
+            alreadySelected.push($(dropdownInputs[i]).val())
+        }
+        for (var i=0; i<dropdownInputs.length; i++){
+            $(dropdownInputs[i]).find("option").prop("disabled", false);
+            if (thisVal !== "-") {
+                $(dropdownInputs[i]).find('option[value="' + thisVal + '"]').prop("disabled", true);
             }
         }
-        // console.log(allCalloutTexts);
-        // var disabledButtons = findDisabled();
-        $(siblingDropdown).empty();
-        for (var i=0; i<btnVals.length; i++){
-            var newStatButton = $("<button>");
-            $(newStatButton).addClass("button");
-            $(newStatButton).html(btnVals[i]);
-            $(siblingDropdown).append(newStatButton);
-            $(newStatButton).on("click", btnToStat);
-        }
     }
+    */
+    
+    /*function disableSelected(){
+        var thisVal = $(this).val();
+        // grab all the dropdown inputs
+        var dropdownInputs = $(".dropdown-input");
+        // grab all the dropdown input options
+        var dropdownOptions = $(".stat-select-option");
+        // loop through them and get all the selected values
+        var alreadySelected = [];
+        for (var i=0; i<dropdownInputs.length; i++){
+            alreadySelected.push($(dropdownInputs[i]).val());
+        }
+        console.log(alreadySelected);
+        // loop through already selected, then loop through the inputs and look for matches
+        // for (var i=0; i<alreadySelected.length; i++){
+        //     for (var j=0; j<dropdownInputs.length; j++){
+        //         if (alreadySelected[i] !== "-"){
+        //             $(dropdownInputs[i]).attr("disabled", "true");
+        //         }
+        //     }
+        // }
+    }
+    */
     
 });
-
-function btnToStat(){
-    var chosenStat = $(this).html();
-    // console.log(chosenStat);
-    var ancestCallout = $(this).parent().parent().children()[0];
-    // console.log(ancestCallout);
-    var uncleSpan = $(ancestCallout).children()[1];
-    $(uncleSpan).text(": " + chosenStat);
-}
