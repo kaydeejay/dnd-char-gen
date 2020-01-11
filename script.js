@@ -44,7 +44,7 @@ $(document).ready(function(){
             var statSelectFormLabel = $("<label>");
             var statSelectFormSel = $("<select>");
             $(statSelectFormSel).addClass("dropdown-input");
-            /*
+            
             // make a dropdown option for each stat type:
             for (var j=0; j<statTypes.length; j++){
                 var statOption = $("<option>");
@@ -53,16 +53,13 @@ $(document).ready(function(){
                 $(statOption).text(statTypes[j]);
                 $(statSelectFormSel).append(statOption);
             }
-            */
+            
             $(currentStatDisplay).text(currentStatVal);
             $(statSelectFormLabel).text("Assign this Score to a Stat:");
             $(currentStatEl).append(currentStatDisplay);
             $(currentStatEl).append(statSelectForm);
             $(statSelectForm).append(statSelectFormLabel);
-            $(statSelectForm).append(statSelectFormSel);
-            
-            populateDropdowns();
-            $(statSelectFormSel).change(populateDropdowns);
+            $(statSelectForm).append(statSelectFormSel);   
         }
     }
     
@@ -76,11 +73,9 @@ $(document).ready(function(){
     function getSum(total, num) {
         return total + num;
     }
-
-    function populateDropdowns(){
-        var dropDowns = $
-    }
     
+    // Below this line is the "function graveyard."
+
     /*function disableSelected(){
         var dropdownInputs = $(".dropdown-input");
         var thisVal = $(this).val();
