@@ -8,5 +8,9 @@ h1 {
     text-align: center;
 }
 
+div {
+    flex-direction: column;
+    float: center;
+}
 
   
