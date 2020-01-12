@@ -17,8 +17,21 @@
     <div class="grid-container">
         <div class="grid-x grid-margin-x">
             <div class="cell small-4">
-                Roll for Stats:
-                <button class="expanded button" id="randomStats">Roll</button>
+                <h4>Roll for Stats:</h4>
+                <p>Follow this Column</p>
+            </div>
+            <div class="cell small-4">
+                <h4>Standard Array:</h4>
+                <p>Follow this Column</p>
+            </div>
+            <div class="cell small-4">
+                <h4>Point Buy:</h4>
+                <p>Follow this Column</p>
+            </div>
+        </div>
+        <div class="grid-x grid-margin-x">
+            <div class="cell small-4">
+                <button class="expanded button" id="randomStatsButton">Roll!</button>
                 <div class="grid-y" id="rolledStats">
                     <div class="cell small-2">
                         <div class="callout rand-callout"></div>
@@ -42,8 +55,7 @@
             </div>
 
             <div class="cell small-4">
-​                Standard Array
-                <div class="grid-y">
+                <div class="grid-y" id="standardStats">
                     <div class="cell small-2">
                         <div class="callout stand-callout">15</div>
                     </div>
@@ -66,7 +78,6 @@
             </div>
 
             <div class="cell small-4">
-                Point Buy:                
                 <div class="callout text-center">27</div>
                 <div class="grid-x">
                     <div class="cell small-4">

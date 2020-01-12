@@ -1,11 +1,17 @@
 $(document).ready(function(){
     $(document).foundation();
 
-    var randStatCalloutEls = $(".rand-callout")
     var statTypes = ["-", "STR", "DEX", "CON", "INT", "WIS", "CHA"];
+    var randStatDivs = $("#rolledStats").children();
+    var randStatCallouts = $(randStatDivs).children();
+    var standStatDivs = $("#standardStats").children();
+    var standStatCallouts = $(standStatDivs).children();
+
+    // make inputs for standard array
+    makeInputs(standStatCallouts);
 
     // generate random stat values when the "roll" button is clicked
-    $("#randomStats").on("click", function(){
+    $("#randomStatsButton").on("click", function(){
         var d6Vals = [];
         var statRolls = [];
         var statRollTotals = [];
@@ -32,41 +38,15 @@ $(document).ready(function(){
     });
     
     function populateRandStats(arr){
-        var rolledStatDivs = $("#rolledStats").children();
-        for (var i=0; i<rolledStatDivs.length; i++){
-            var currentStatEl = $(rolledStatDivs[i]).children()[0];
-            // empty previous roll (if user presses "roll" twice)
-            // everyone gets a crummy roll sometimes!
+        for (var i=0; i<randStatDivs.length; i++){
+            var currentStatEl = $(randStatDivs[i]).children()[0];
             $(currentStatEl).empty();
             var currentStatVal = arr[i];
             var currentStatDisplay = $("<span>");
-            var statSelectForm = $("<form>");
-            var statSelectFormLabel = $("<label>");
-            var statSelectFormSel = $("<select>");
-            $(statSelectForm).addClass("stat-select-form");
-            $(statSelectFormSel).addClass("dropdown-input");
-
-            
-            // make a dropdown option for each stat type:
-            for (var j=0; j<statTypes.length; j++){
-                var statOption = $("<option>");
-                $(statOption).attr("value", statTypes[j]);
-                $(statOption).attr("class", "stat-select-option");
-                $(statOption).text(statTypes[j]);
-                $(statSelectFormSel).append(statOption);
-            }
-            
-            
             $(currentStatDisplay).text(currentStatVal);
-            $(statSelectFormLabel).text("Assign a Stat to This Score:");
             $(currentStatEl).append(currentStatDisplay);
-            $(currentStatEl).append(statSelectForm);
-            $(statSelectForm).append(statSelectFormLabel);
-            $(statSelectForm).append(statSelectFormSel);
-            
-            $(statSelectForm).on("change", statSelectFormSel, disableSelected);
         }
-        //populateButtons();
+        makeInputs(randStatCallouts);
     }
     
     function dropLowest(arr) {
@@ -85,7 +65,7 @@ $(document).ready(function(){
             return $(this).val();
         }).get();
         $(".dropdown-input option").removeAttr("disabled");
-        $(".dropdown-input option:not(:selected):not([value='0'])").each(function(){
+        $(".dropdown-input option:not(:selected):not([value='-'])").each(function(){
             if ($.inArray($(this).val(), allSelected) !== -1) {
                 $(this).attr("disabled", true);
             }
@@ -93,80 +73,29 @@ $(document).ready(function(){
         
     }
 
-    
-    // Below this line is the "function graveyard."
-    
-    /*
-    function populateButtons(){
-        // store already selected values
-        var alreadySelected = [];
-        var dropdowns = $(".dropdown-input");
-        // clear the dropdowns
-        $(dropdowns).empty();
-        // make sure that "-" is always the first option
-        var blankOption = $("<option>");
-        $(blankOption).text("-");
-        $(dropdowns).append(blankOption);
-        for (var i=0; i<dropdowns.length; i++){
-            alreadySelected.push($(dropdowns[i]).val());
-        }
-        // loop through the statTypes array and make a dropdown option for each one
-        for (var i=0; i<statTypes.length; i++){
-            // don't allow the option to disable the "-" option
-            if (statTypes[i] !== "-"){
-                if (alreadySelected.indexOf(statTypes[i]) > -1){
-                    var dropdownOption = $("<option>");
-                    $(dropdownOption).text(statTypes[i]);
-                    $(dropdowns).append(dropdownOption);
-                    $(dropdownOption).attr("disabled", "true");
-                } else {
-                    var dropdownOption = $("<option>");
-                    $(dropdownOption).text(statTypes[i]);
-                    $(dropdowns).append(dropdownOption);
-                }
+    function makeInputs(obj){
+        for (var i=0; i<obj.length; i++){
+            var statSelectForm = $("<form>");
+            var statSelectFormLabel = $("<label>");
+            var statSelectFormSel = $("<select>");
+            $(statSelectForm).addClass("stat-select-form");
+            $(statSelectFormSel).addClass("dropdown-input");
+
+            // make a dropdown option for each stat type:
+            for (var j=0; j<statTypes.length; j++){
+                var statOption = $("<option>");
+                $(statOption).attr("value", statTypes[j]);
+                $(statOption).attr("class", "stat-select-option");
+                $(statOption).text(statTypes[j]);
+                $(statSelectFormSel).append(statOption);
             }
-        }
-        
-    }
-    */
-    /*function disableSelected(){
-        var dropdownInputs = $(".dropdown-input");
-        var thisVal = $(this).val();
-        // var dropdownOptions = $(".stat-select-option");
-        var alreadySelected = [];
-        for (var i=0; i<dropdownInputs.length; i++){
-            alreadySelected.push($(dropdownInputs[i]).val())
-        }
-        for (var i=0; i<dropdownInputs.length; i++){
-            $(dropdownInputs[i]).find("option").prop("disabled", false);
-            if (thisVal !== "-") {
-                $(dropdownInputs[i]).find('option[value="' + thisVal + '"]').prop("disabled", true);
-            }
+            $(statSelectFormLabel).text("Assign a Stat to This Score:");
+            $(obj[i]).append(statSelectForm);
+            $(statSelectForm).append(statSelectFormLabel);
+            $(statSelectForm).append(statSelectFormSel);
+            
+            $(statSelectForm).on("change", statSelectFormSel, disableSelected);
         }
     }
-    */
-    
-    /*function disableSelected(){
-        var thisVal = $(this).val();
-        // grab all the dropdown inputs
-        var dropdownInputs = $(".dropdown-input");
-        // grab all the dropdown input options
-        var dropdownOptions = $(".stat-select-option");
-        // loop through them and get all the selected values
-        var alreadySelected = [];
-        for (var i=0; i<dropdownInputs.length; i++){
-            alreadySelected.push($(dropdownInputs[i]).val());
-        }
-        console.log(alreadySelected);
-        // loop through already selected, then loop through the inputs and look for matches
-        // for (var i=0; i<alreadySelected.length; i++){
-        //     for (var j=0; j<dropdownInputs.length; j++){
-        //         if (alreadySelected[i] !== "-"){
-        //             $(dropdownInputs[i]).attr("disabled", "true");
-        //         }
-        //     }
-        // }
-    }
-    */
-    
+
 });
