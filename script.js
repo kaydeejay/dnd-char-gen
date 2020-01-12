@@ -6,9 +6,54 @@ $(document).ready(function(){
     var randStatCallouts = $(randStatDivs).children();
     var standStatDivs = $("#standardStats").children();
     var standStatCallouts = $(standStatDivs).children();
-
+    var pointBuyWell = $("#pointWell");
+    var pbIncBtns = $(".incBtn");
+    var pbDecBtns = $(".decBtn");
+    
     // make inputs for standard array
     makeInputs(standStatCallouts);
+
+    // increment stats when increment buttons are clicked
+    $(pbIncBtns).on("click", function(){
+        var statValue = parseInt($("[data-stat='" + $(this).attr("data-inc") + "']").text());
+        var pointsRemaining = parseInt($(pointBuyWell).text());
+        if (pointsRemaining > 0 && pointsRemaining < 28){
+            if (statValue === 13){
+                if (pointsRemaining > 1){
+                    statValue++;
+                    $("[data-stat='" + $(this).attr("data-inc") + "']").text(statValue);
+                    pointsRemaining -= 2;
+                    $(pointBuyWell).text(pointsRemaining);
+                }
+            } else if (statValue > 7 && statValue < 15) {
+                statValue++;
+                $("[data-stat='" + $(this).attr("data-inc") + "']").text(statValue);
+                pointsRemaining--;
+                $(pointBuyWell).text(pointsRemaining);
+            }
+        }
+    });
+
+    // decrement stats when decrement buttons are clicked
+    $(pbDecBtns).on("click", function(){
+        var statValue = parseInt($("[data-stat='" + $(this).attr("data-dec") + "']").text());
+        var pointsRemaining = parseInt($(pointBuyWell).text());
+        if (pointsRemaining > -1 && pointsRemaining < 27){
+            if (statValue === 14){
+                if (pointsRemaining < 26){
+                    statValue--;
+                    $("[data-stat='" + $(this).attr("data-dec") + "']").text(statValue);
+                    pointsRemaining += 2;
+                    $(pointBuyWell).text(pointsRemaining);
+                }
+            } else if (statValue > 8 && statValue < 16) {
+                statValue--;
+                $("[data-stat='" + $(this).attr("data-dec") + "']").text(statValue);
+                pointsRemaining++;
+                $(pointBuyWell).text(pointsRemaining);
+            }
+        }
+    });
 
     // generate random stat values when the "roll" button is clicked
     $("#randomStatsButton").on("click", function(){

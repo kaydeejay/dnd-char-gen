@@ -51,6 +51,7 @@
                     <div class="cell small-2">
                         <div class="callout rand-callout"></div>
                     </div>
+                    <button class="expanded button">Save Rolled Stats</button>
                 </div>
             </div>
 
@@ -74,77 +75,87 @@
                     <div class="cell small-2">
                         <div class="callout stand-callout">8</div>
                     </div>
+                    <button class="expanded button">Save Standard Array Stats</button>
                 </div>
             </div>
 
             <div class="cell small-4">
-                <div class="callout text-center">27</div>
-                <div class="grid-x">
-                    <div class="cell small-4">
-                        <button class="button">-</button>
+                <div class="callout text-center" id="pointWell">27</div>
+                <div id="pointBuyStats">
+                    <div class="grid-x">
+                        <div class="cell small-4">
+                            <button class="button decBtn" data-dec="str">-</button>
+                        </div>
+                        <div class="cell small-4 pb-el">
+                            <span>STR: </span> 
+                            <span class="pb-score" data-stat="str">8</span>
+                        </div>
+                        <div class="cell small-4">
+                            <button class="button incBtn" data-inc="str">+</button>
+                        </div>
                     </div>
-                    <div class="cell small-4">
-                        attr <span>score</span>
+                    <div class="grid-x">
+                        <div class="cell small-4">
+                            <button class="button decBtn" data-dec="dex">-</button>
+                        </div>
+                        <div class="cell small-4 pb-el">
+                            <span>DEX: </span> 
+                            <span class="pb-score" data-stat="dex">8</span>
+                        </div>
+                        <div class="cell small-4">
+                            <button class="button incBtn" data-inc="dex">+</button>
+                        </div>
                     </div>
-                    <div class="cell small-4">
-                        <button class="button">+</button>
+                    <div class="grid-x">
+                        <div class="cell small-4">
+                            <button class="button decBtn" data-dec="con">-</button>
+                        </div>
+                        <div class="cell small-4 pb-el">
+                            <span>CON: </span> 
+                            <span class="pb-score" data-stat="con">8</span>
+                        </div>
+                        <div class="cell small-4">
+                            <button class="button incBtn" data-inc="con">+</button>
+                        </div>
+                    </div>
+                    <div class="grid-x">
+                        <div class="cell small-4">
+                            <button class="button decBtn" data-dec="int">-</button>
+                        </div>
+                        <div class="cell small-4 pb-el">
+                            <span>INT: </span> 
+                            <span class="pb-score" data-stat="int">8</span>
+                        </div>
+                        <div class="cell small-4">
+                            <button class="button incBtn" data-inc="int">+</button>
+                        </div>
+                    </div>
+                    <div class="grid-x">
+                        <div class="cell small-4">
+                            <button class="button decBtn" data-dec="wis">-</button>
+                        </div>
+                        <div class="cell small-4 pb-el">
+                            <span>WIS: </span> 
+                            <span class="pb-score" data-stat="wis">8</span>
+                        </div>
+                        <div class="cell small-4">
+                            <button class="button incBtn" data-inc="wis">+</button>
+                        </div>
+                    </div>
+                    <div class="grid-x">
+                        <div class="cell small-4">
+                            <button class="button decBtn" data-dec="cha">-</button>
+                        </div>
+                        <div class="cell small-4 pb-el">
+                            <span>CHA: </span> 
+                            <span class="pb-score" data-stat="cha">8</span class="pb-score">
+                        </div>
+                        <div class="cell small-4">
+                            <button class="button incBtn" data-inc="cha">+</button>
+                        </div>
                     </div>
                 </div>
-                <div class="grid-x">
-                    <div class="cell small-4">
-                        <button class="button">-</button>
-                    </div>
-                    <div class="cell small-4">
-                        attr <span>score</span>
-                    </div>
-                    <div class="cell small-4">
-                        <button class="button">+</button>
-                    </div>
-                </div>
-                <div class="grid-x">
-                    <div class="cell small-4">
-                        <button class="button">-</button>
-                    </div>
-                    <div class="cell small-4">
-                        attr <span>score</span>
-                    </div>
-                    <div class="cell small-4">
-                        <button class="button">+</button>
-                    </div>
-                </div>
-                <div class="grid-x">
-                    <div class="cell small-4">
-                        <button class="button">-</button>
-                    </div>
-                    <div class="cell small-4">
-                        attr <span>score</span>
-                    </div>
-                    <div class="cell small-4">
-                        <button class="button">+</button>
-                    </div>
-                </div>
-                <div class="grid-x">
-                    <div class="cell small-4">
-                        <button class="button">-</button>
-                    </div>
-                    <div class="cell small-4">
-                        attr <span>score</span>
-                    </div>
-                    <div class="cell small-4">
-                        <button class="button">+</button>
-                    </div>
-                </div>
-                <div class="grid-x">
-                    <div class="cell small-4">
-                        <button class="button">-</button>
-                    </div>
-                    <div class="cell small-4">
-                        attr <span>score</span>
-                    </div>
-                    <div class="cell small-4">
-                        <button class="button">+</button>
-                    </div>
-                </div>
+                <button class="expanded button">Save Point Buy Stats</button>
             </div>
         </div>
     </div>
