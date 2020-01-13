@@ -7,8 +7,26 @@ $(document).ready(function(){
     function populateModal(){
         var thisBtnVal = $(this).attr("data-desc");
         var thisBtnType = $(this).attr("data-btn-type");
+        var modalTitle = $("#modalTitle");
+        var modalSimpleDesc = $("#simpleDesc");
+        var modalTraitsDesc = $("#traitsDesc");
         if (thisBtnType === "race") {
-            console.log("success!");
+            for (var i=0; i<races.length; i++){
+                if (races[i].slug === thisBtnVal){
+                    $(modalTitle).text(races[i].name);
+                    $(modalSimpleDesc).text(races[i].desc);
+                    console.log(races[i].traits);
+                    $(modalTraitsDesc).text(races[i].traits);
+                }
+            }
+        } else if (thisBtnType === "class") {
+            for (var i=0; i<classes.length; i++){
+                if (classes[i].slug === thisBtnVal){
+                    $(modalTitle).text(classes[i].name);
+                    $(modalSimpleDesc).text("");
+                    $(modalTraitsDesc).text(classes[i].desc);
+                }
+            }
         }
     }
 
