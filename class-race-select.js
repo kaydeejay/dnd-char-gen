@@ -15,7 +15,6 @@ $(document).ready(function(){
                 if (races[i].slug === thisBtnVal){
                     $(modalTitle).text(races[i].name);
                     $(modalSimpleDesc).text(races[i].desc);
-                    console.log(races[i].traits);
                     $(modalTraitsDesc).text(races[i].traits);
                 }
             }
