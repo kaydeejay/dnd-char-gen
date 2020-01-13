@@ -35,20 +35,20 @@
             <div class="grid-x">
                 <div class="cell small-4">
                     <div class="grid-y">
-                        <div class="cell small-6">class and level</div>
-                        <div class="cell small-6">race</div>
+                        <div class="cell small-6" id="sheetClass">class and level</div>
+                        <div class="cell small-6" id="sheetRace">race</div>
                     </div>
                 </div>
                 <div class="cell small-4">
                     <div class="grid-y">
-                        <div class="cell small-6">background</div>
-                        <div class="cell small-6">alignment</div>
+                        <div class="cell small-6"></div>
+                        <div class="cell small-6"></div>
                     </div>
                 </div>
                 <div class="cell small-4">
                     <div class="grid-y">
-                        <div class="cell small-6">player name</div>
-                        <div class="cell small-6">exp points</div>
+                        <div class="cell small-6"></div>
+                        <div class="cell small-6"></div>
                     </div>
                 </div>
             </div>
@@ -63,32 +63,32 @@
                     <div class="grid-y">
                         <div class="cell small-2">
                             <div class="callout">
-                                Strength
+                                Strength: <span id="strengthScore"></span>
                             </div>
                         </div>
                         <div class="cell small-2">
                             <div class="callout">
-                                Dexterity
+                                Dexterity: <span id="dexScore"></span>
                             </div>
                         </div>
                         <div class="cell small-2">
                             <div class="callout">
-                                Constitution
+                                Constitution: <span id="conScore"></span>
                             </div>
                         </div>
                         <div class="cell small-2">
                             <div class="callout">
-                                Intelligence
+                                Intelligence: <span id="intScore"></span>
                             </div>
                         </div>
                         <div class="cell small-2">
                             <div class="callout">
-                                Wisdom
+                                Wisdom: <span id="wisScore"></span>
                             </div>
                         </div>
                         <div class="cell small-2">
                             <div class="callout">
-                                Charisma
+                                Charisma: <span id="chaScore"></span>
                             </div>
                         </div>
                     </div>
@@ -255,5 +255,15 @@
       </div>
     </div>
 
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
+    <script 
+        src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js" 
+        integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA==" crossorigin="anonymous">
+    </script>
+    <script src="./user-character.js"></script>
 </body>
 </html>

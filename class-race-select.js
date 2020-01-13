@@ -40,7 +40,7 @@ $(document).ready(function(){
             var thisResponseItem = response.results[x];
             var newRad = $('<input type="radio" name="race" data-val="' + thisResponseItem.slug + '"></input>');
             var newBtn = $('<button data-open="infoModal" class="hollow button" type="button" data-btn-type="race" data-desc="' + thisResponseItem.slug + '">' + thisResponseItem.name + '</button>');
-            $("#racesForm").append(newRow);
+            $("#racesFormCol").append(newRow);
             $(newRow).append(newRad);
             $(newRow).append(newBtn);
             $(newBtn).on("click", populateModal);
@@ -56,9 +56,9 @@ $(document).ready(function(){
         for (x in response.results){
             var newRow = $('<div class="cell">');
             var thisResponseItem = response.results[x];
-            var newRad = $('<input type="radio" name="race" data-val="' + thisResponseItem.slug + '"></input>');
+            var newRad = $('<input type="radio" name="class" data-val="' + thisResponseItem.slug + '"></input>');
             var newBtn = $('<button data-open="infoModal" class="hollow button" type="button" data-btn-type="class" data-desc="' + thisResponseItem.slug + '">' + thisResponseItem.name + '</button>');
-            $("#classesForm").append(newRow);
+            $("#classesFormCol").append(newRow);
             $(newRow).append(newRad);
             $(newRow).append(newBtn);
             $(newBtn).on("click", populateModal);
