@@ -8,14 +8,14 @@ $(document).ready(function(){
     var character = {};
 
     // save and continue function on page 1
+    // saves user selections to the user character object, as well as to localStorage
     function saveAndContinue1(){}
 
     // save and continue function on page 2
+    // saves user selections to the user character object, as well as to localStorage
     function saveAndContinue2(){}
 
     // populate character sheet from localStorage 
-    // or character object, not sure yet what will be most effective
-    // probably local storage.
     function populateCharSheet(){}
 
     // Icebox:
