@@ -11,10 +11,10 @@ D&D Character Generator is an application that simplifies the process of creatin
 
 ##Technologies Used
 
-Foundation 6
-HTML, CSS, JAVASCRIPT, JQUERY
-Open5e API
-Diceful API
+Foundation 6,
+HTML, CSS, JAVASCRIPT, JQUERY,
+Open5e API,
+Diceful API,
 
 ##User Stories Completed
 
