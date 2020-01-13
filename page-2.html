@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Generate Stats</title>
+    <link 
+        rel="stylesheet" 
+        href="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/css/foundation.min.css" 
+        integrity="sha256-GSio8qamaXapM8Fq9JYdGNTvk/dgs+cMLgPeevOYEx0= sha384-wAweiGTn38CY2DSwAaEffed6iMeflc0FMiuptanbN4J+ib+342gKGpvYRWubPd/+ sha512-QHEb6jOC8SaGTmYmGU19u2FhIfeG+t/hSacIWPpDzOp5yygnthL3JwnilM7LM1dOAbJv62R+/FICfsrKUqv4Gg==" 
+        crossorigin="anonymous"
+    >
+</head>
+<body>
+​
+    <div class="grid-container">
+        <div class="grid-x grid-margin-x">
+            <div class="cell small-4">
+                <h4>Roll for Stats:</h4>
+                <p>Follow this Column</p>
+            </div>
+            <div class="cell small-4">
+                <h4>Standard Array:</h4>
+                <p>Follow this Column</p>
+            </div>
+            <div class="cell small-4">
+                <h4>Point Buy:</h4>
+                <p>Follow this Column</p>
+            </div>
+        </div>
+        <div class="grid-x grid-margin-x">
+            <div class="cell small-4">
+                <button class="expanded button" id="randomStatsButton">Roll!</button>
+                <div class="grid-y" id="rolledStats">
+                    <div class="cell small-2">
+                        <div class="callout rand-callout"></div>
+                    </div>
+                    <div class="cell small-2">
+                        <div class="callout rand-callout"></div>
+                    </div>
+                    <div class="cell small-2">
+                        <div class="callout rand-callout"></div>
+                    </div>
+                    <div class="cell small-2">
+                        <div class="callout rand-callout"></div>
+                    </div>
+                    <div class="cell small-2">
+                        <div class="callout rand-callout"></div>
+                    </div>
+                    <div class="cell small-2">
+                        <div class="callout rand-callout"></div>
+                    </div>
+                    <button class="expanded button" id="saveRoll">Save Rolled Stats</button>
+                </div>
+            </div>
+
+            <div class="cell small-4">
+                <div class="grid-y" id="standardStats">
+                    <div class="cell small-2">
+                        <div class="callout stand-callout">15</div>
+                    </div>
+                    <div class="cell small-2">
+                        <div class="callout stand-callout">14</div>
+                    </div>
+                    <div class="cell small-2">
+                        <div class="callout stand-callout">13</div>
+                    </div>
+                    <div class="cell small-2">
+                        <div class="callout stand-callout">12</div>
+                    </div>
+                    <div class="cell small-2">
+                        <div class="callout stand-callout">10</div>
+                    </div>
+                    <div class="cell small-2">
+                        <div class="callout stand-callout">8</div>
+                    </div>
+                    <button class="expanded button" id="saveStand">Save Standard Array Stats</button>
+                </div>
+            </div>
+
+            <div class="cell small-4">
+                <div class="callout text-center" id="pointWell">27</div>
+                <div id="pointBuyStats">
+                    <div class="grid-x">
+                        <div class="cell small-4">
+                            <button class="button decBtn" data-dec="str">-</button>
+                        </div>
+                        <div class="cell small-4 pb-el">
+                            <span>STR: </span> 
+                            <span class="pb-score" data-stat="str">8</span>
+                        </div>
+                        <div class="cell small-4">
+                            <button class="button incBtn" data-inc="str">+</button>
+                        </div>
+                    </div>
+                    <div class="grid-x">
+                        <div class="cell small-4">
+                            <button class="button decBtn" data-dec="dex">-</button>
+                        </div>
+                        <div class="cell small-4 pb-el">
+                            <span>DEX: </span> 
+                            <span class="pb-score" data-stat="dex">8</span>
+                        </div>
+                        <div class="cell small-4">
+                            <button class="button incBtn" data-inc="dex">+</button>
+                        </div>
+                    </div>
+                    <div class="grid-x">
+                        <div class="cell small-4">
+                            <button class="button decBtn" data-dec="con">-</button>
+                        </div>
+                        <div class="cell small-4 pb-el">
+                            <span>CON: </span> 
+                            <span class="pb-score" data-stat="con">8</span>
+                        </div>
+                        <div class="cell small-4">
+                            <button class="button incBtn" data-inc="con">+</button>
+                        </div>
+                    </div>
+                    <div class="grid-x">
+                        <div class="cell small-4">
+                            <button class="button decBtn" data-dec="int">-</button>
+                        </div>
+                        <div class="cell small-4 pb-el">
+                            <span>INT: </span> 
+                            <span class="pb-score" data-stat="int">8</span>
+                        </div>
+                        <div class="cell small-4">
+                            <button class="button incBtn" data-inc="int">+</button>
+                        </div>
+                    </div>
+                    <div class="grid-x">
+                        <div class="cell small-4">
+                            <button class="button decBtn" data-dec="wis">-</button>
+                        </div>
+                        <div class="cell small-4 pb-el">
+                            <span>WIS: </span> 
+                            <span class="pb-score" data-stat="wis">8</span>
+                        </div>
+                        <div class="cell small-4">
+                            <button class="button incBtn" data-inc="wis">+</button>
+                        </div>
+                    </div>
+                    <div class="grid-x">
+                        <div class="cell small-4">
+                            <button class="button decBtn" data-dec="cha">-</button>
+                        </div>
+                        <div class="cell small-4 pb-el">
+                            <span>CHA: </span> 
+                            <span class="pb-score" data-stat="cha">8</span class="pb-score">
+                        </div>
+                        <div class="cell small-4">
+                            <button class="button incBtn" data-inc="cha">+</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="expanded button" id="savePB">Save Point Buy Stats</button>
+            </div>
+        </div>
+    </div>
+
+    <script
+		src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
+    <script 
+        src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js" 
+        integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA==" crossorigin="anonymous">
+    </script>
+    <script src="./stat-gen.js"></script>
+    <script src="./user-character.js"></script>
+</body>
+</html>
