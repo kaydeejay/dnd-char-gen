@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>D&D Character Generator</title>
+    <!-- import foundation -->
+    <link 
+        rel="stylesheet" 
+        href="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/css/foundation.min.css" 
+        integrity="sha256-GSio8qamaXapM8Fq9JYdGNTvk/dgs+cMLgPeevOYEx0= sha384-wAweiGTn38CY2DSwAaEffed6iMeflc0FMiuptanbN4J+ib+342gKGpvYRWubPd/+ sha512-QHEb6jOC8SaGTmYmGU19u2FhIfeG+t/hSacIWPpDzOp5yygnthL3JwnilM7LM1dOAbJv62R+/FICfsrKUqv4Gg==" 
+        crossorigin="anonymous"
+    >
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href="./assets/css/style.css"
+    >
+</head>
+<body>
+    
+    <div class="grid-container">
+      <div class="grid-x grid-margin-x">
+        <div class="cell small-5">
+            <form>
+                <label>Character Name
+                    <input type="text" placeholder="Enter Character Name Here" aria-describedby="exampleHelpText">
+                </label>
+                <button type="submit" class="button">Save</button>
+                <button type="button" class="button">Edit</button>    
+            </form>
+        </div>
+        <div class="cell small-7">
+            <div class="grid-x">
+                <div class="cell small-4">
+                    <div class="grid-y">
+                        <div class="cell small-6" id="sheetClass">class and level</div>
+                        <div class="cell small-6" id="sheetRace">race</div>
+                    </div>
+                </div>
+                <div class="cell small-4">
+                    <div class="grid-y">
+                        <div class="cell small-6"></div>
+                        <div class="cell small-6"></div>
+                    </div>
+                </div>
+                <div class="cell small-4">
+                    <div class="grid-y">
+                        <div class="cell small-6"></div>
+                        <div class="cell small-6"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="grid-x grid-margin-x">
+        <!-- stats -->
+        <div class="cell small-4">
+            <div class="grid-x grid-margin-x">
+                <!-- base stats -->
+                <div class="cell small-4">
+                    <div class="grid-y">
+                        <div class="cell small-2">
+                            <div class="callout">
+                                Strength: <span id="strScore"></span>
+                            </div>
+                        </div>
+                        <div class="cell small-2">
+                            <div class="callout">
+                                Dexterity: <span id="dexScore"></span>
+                            </div>
+                        </div>
+                        <div class="cell small-2">
+                            <div class="callout">
+                                Constitution: <span id="conScore"></span>
+                            </div>
+                        </div>
+                        <div class="cell small-2">
+                            <div class="callout">
+                                Intelligence: <span id="intScore"></span>
+                            </div>
+                        </div>
+                        <div class="cell small-2">
+                            <div class="callout">
+                                Wisdom: <span id="wisScore"></span>
+                            </div>
+                        </div>
+                        <div class="cell small-2">
+                            <div class="callout">
+                                Charisma: <span id="chaScore"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- sub stats -->
+                <div class="cell small-8">
+                    <div class="grid-y">
+                        <div class="cell small-1">Inspiration</div>
+                        <div class="cell small-2">Proficiency Bonus</div>
+                        <div class="cell small-3">
+                            <h5>Saving Throws</h5>
+                            <p>Strength</p>
+                            <p>Dexterity</p>
+                            <p>Constitution</p>
+                            <p>Intelligence</p>
+                            <p>Wisdom</p>
+                            <p>Charisma</p>
+                        </div>
+                        <div class="cell small-7">
+                            <h5>Skills</h5>
+                            <p>Acrobatics</p>
+                            <p>Animal Handling</p>
+                            <p>Arcana</p>
+                            <p>Athletics</p>
+                            <p>Deception</p>
+                            <p>History</p>
+                            <p>Insight</p>
+                            <p>Intimidation</p>
+                            <p>Investigation</p>
+                            <p>Medicine</p>
+                            <p>Nature</p>
+                            <p>Perception</p>
+                            <p>Performance</p>
+                            <p>Persuasion</p>
+                            <p>Religion</p>
+                            <p>Sleight of Hand</p>
+                            <p>Stealth</p>
+                            <p>Survival</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- passive perception, languages/other traits -->
+            <div class="grid-y">
+                <div class="cell small-2">passive perception</div>
+                <div class="cell small-10">languages/other traits</div>
+            </div>
+        </div>
+        <!-- hp/ac/atk-->
+        <div class="cell small-4">
+            <div class="grid-y">
+                <div class="cell small-4">
+                    <div class="grid-x">
+                        <div class="cell small-4">
+                            <div class="callout">
+                                Armor Class
+                            </div>
+                        </div>
+                        <div class="cell small-4">
+                            <div class="callout">
+                                Hit Points
+                            </div>
+                        </div>
+                        <div class="cell small-4">
+                            <div class="callout">
+                                Speed
+                            </div>
+                        </div>
+                    </div>
+                    <div class="callout">
+                        Max HP: <span class="max-HP"></span>
+                        <form>
+                            <label>
+                                Current HP
+                                <input type="number" value="20">
+                            </label>
+                            <label>
+                                Temporary Hit Points
+                                <input type="number" value="0">
+                            </label>
+                        </form>
+                    </div>
+                    <div class="grid-x grid-margin-x">
+                        <div class="cell small-6">
+                            <div class="callout">
+                                Hit Die Type: <span class="hit-die"></span>
+                                <form>
+                                    <label>
+                                        Hit Dice:
+                                        <input type="number" value="1">
+                                    </label>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="cell small-6">
+                            Death Saves
+                            <div class="grid-y">
+                                <fieldset class="cell small-6">
+                                    <legend>Successes</legend>
+                                    <input id="successCheckbox1" type="checkbox">
+                                    <input id="successCheckbox2" type="checkbox">
+                                    <input id="successCheckbox3" type="checkbox">
+                                </fieldset>
+                                <fieldset class="cell small-6">
+                                    <legend>failures</legend>
+                                    <input id="failureCheckbox1" type="checkbox">
+                                    <input id="failureCheckbox2" type="checkbox">
+                                    <input id="failureCheckbox3" type="checkbox">
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cell small-4">attacks/spellcasting</div>
+                <div class="cell small-4">equipment</div>
+            </div>
+        </div>
+        <!-- written data -->
+        <div class="cell small-4">
+            <div class="grid-y">
+                <div class="cell small-4">
+                    <div class="grid-y">
+                        <div class="cell small-3">
+                          <form>
+                            <label>
+                              Personality Traits
+                              <textarea placeholder="none"></textarea>
+                              <button type="submit" class="button">Save</button>
+                            </label>
+                          </form>
+                        </div>
+                        <div class="cell small-3">
+                          <form>
+                            <label>
+                              Ideals
+                              <textarea placeholder="none"></textarea>
+                              <button type="submit" class="button">Save</button>
+                            </label>
+                          </form>
+                        </div>
+                        <div class="cell small-3">
+                          <form>
+                            <label>
+                              Bonds
+                              <textarea placeholder="none"></textarea>
+                              <button type="submit" class="button">Save</button>
+                            </label>
+                          </form>
+                        </div>
+                        <div class="cell small-3">
+                          <form>
+                            <label>
+                              Flaws
+                              <textarea placeholder="none"></textarea>
+                              <button type="submit" class="button">Save</button>
+                            </label>
+                          </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="cell small-8">Traits</div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
+    <script 
+        src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js" 
+        integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA==" crossorigin="anonymous">
+    </script>
+    <script src="./user-character.js"></script>
+</body>
+</html>
