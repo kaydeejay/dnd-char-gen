@@ -1,4 +1,4 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{/* <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 $.ajax({
     url: "https://api.open5e.com/classes/",
@@ -12,4 +12,4 @@ $.ajax({
     method: "GET"
   }).then(function(response) {
     console.log(response);
-  });
+  }); */}

@@ -13,6 +13,18 @@
         crossorigin="anonymous"
     >
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous">
+   </script>
+
+   <script 
+    src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js" 
+    integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA==" crossorigin="anonymous">
+   </script>
+
 </head>
 <body>
     <!-- Starter page: step 1 -->
@@ -22,29 +34,29 @@
                 <h3>Select Your Class:</h3>
                 <form>
                     <input type="radio" name="class" value="Barbarian"> 
-                    <button id="barbarian" class="hollow button" href="#" type="button">Barbarian</button><br>
+                    <button data-open="characterInfo" id="barbarian" class="hollow button" href="#" type="button">Barbarian</button><br>
                     <input type="radio" name="class" value="Bard"> 
-                    <button id="bard" class="hollow button" href="#" type="button">Bard</button><br>
+                    <button data-open="characterInfo" id="bard" class="hollow button" href="#" type="button">Bard</button><br>
                     <input type="radio" name="class" value="Cleric"> 
-                    <button id="cleric" class="hollow button" href="#" type="button">Cleric</button><br>
+                    <button data-open="characterInfo" id="cleric" class="hollow button" href="#" type="button">Cleric</button><br>
                     <input type="radio" name="class" value="Druid"> 
-                    <button id="druid" class="hollow button" href="#" type="button">Druid</button><br>
+                    <button data-open="characterInfo" id="druid" class="hollow button" href="#" type="button">Druid</button><br>
                     <input type="radio" name="class" value="Fighter"> 
-                    <button id="fighter" class="hollow button" href="#" type="button">Fighter</button><br>
+                    <button data-open="characterInfo" id="fighter" class="hollow button" href="#" type="button">Fighter</button><br>
                     <input type="radio" name="class" value="Monk"> 
-                    <button id="monk" class="hollow button" href="#" type="button">Monk</button><br>
+                    <button data-open="characterInfo" id="monk" class="hollow button" href="#" type="button">Monk</button><br>
                     <input type="radio" name="class" value="Paladin"> 
-                    <button id="paladin" class="hollow button" href="#" type="button">Paladin</button><br>
+                    <button data-open="characterInfo" id="paladin" class="hollow button" href="#" type="button">Paladin</button><br>
                     <input type="radio" name="class" value="Ranger"> 
-                    <button id="ranger" class="hollow button" href="#" type="button">Ranger</button><br>
+                    <button data-open="characterInfo" id="ranger" class="hollow button" href="#" type="button">Ranger</button><br>
                     <input type="radio" name="class" value="Rogue"> 
-                    <button id="rogue" class="hollow button" href="#" type="button">Rogue</button><br>
+                    <button data-open="characterInfo" id="rogue" class="hollow button" href="#" type="button">Rogue</button><br>
                     <input type="radio" name="class" value="Sorcerer"> 
-                    <button id="sorcerer" class="hollow button" href="#" type="button">Sorcerer</button><br>
+                    <button data-open="characterInfo" id="sorcerer" class="hollow button" href="#" type="button">Sorcerer</button><br>
                     <input type="radio" name="class" value="Warlock"> 
-                    <button id="warlock" class="hollow button" href="#" type="button">Warlock</button><br>
+                    <button data-open="characterInfo" id="warlock" class="hollow button" href="#" type="button">Warlock</button><br>
                     <input type="radio" name="class" value="Wizard"> 
-                    <button id="wizard" class="hollow button" href="#" type="button">Wizard</button><br>
+                    <button data-open="characterInfo" id="wizard" class="hollow button" href="#" type="button">Wizard</button><br>
                     
                 </form>
             </div>
@@ -52,49 +64,42 @@
             <div class="races cell medium-6">
                 <h3>Select Your Race:</h3>
                 <form>
-                    <input type="radio" name="class" value="Dragonborn"> 
-                    <button id="dragonborn" class="hollow button" href="#" type="button">Dragonborn</button><br>
-                    <input type="radio" name="class" value="Dwarf"> 
-                    <button id="dwarf" class="hollow button" href="#" type="button">Dwarf</button><br>
-                    <input type="radio" name="class" value="Elf"> 
-                    <button id="elf" class="hollow button" href="#" type="button">Elf</button><br>
+                    <input type="radio" name="race" value="Dragonborn"> 
+                    <button data-open="characterInfo" id="dragonborn" class="hollow button" href="#" type="button">Dragonborn</button><br>
+                    <input type="radio" name="race" value="Dwarf"> 
+                    <button data-open="characterInfo" id="dwarf" class="hollow button" href="#" type="button">Dwarf</button><br>
+                    <input type="radio" name="race" value="Elf"> 
+                    <button data-open="characterInfo" id="elf" class="hollow button" href="#" type="button">Elf</button><br>
                     <input type="radio" name="class" value="Gnome"> 
-                    <button id="gnome" class="hollow button" href="#" type="button">Gnome</button><br>
+                    <button data-open="characterInfo" id="gnome" class="hollow button" href="#" type="button">Gnome</button><br>
                     <input type="radio" name="class" value="Half-Elf"> 
-                    <button id="half-elf" class="hollow button" href="#" type="button">Half-Elf</button><br>
+                    <button data-open="characterInfo" id="half-elf" class="hollow button" href="#" type="button">Half-Elf</button><br>
                     <input type="radio" name="class" value="Halfling"> 
-                    <button id="halfing" class="hollow button" href="#" type="button">Halfling</button><br>
+                    <button data-open="characterInfo" id="halfing" class="hollow button" href="#" type="button">Halfling</button><br>
                     <input type="radio" name="class" value="Half-Orc"> 
-                    <button id="half-orc" class="hollow button" href="#" type="button">Half-Orc</button><br>
+                    <button data-open="characterInfo" id="half-orc" class="hollow button" href="#" type="button">Half-Orc</button><br>
                     <input type="radio" name="class" value="Human"> 
-                    <button id="human" class="hollow button" href="#" type="button">Human</button><br>
+                    <button data-open="characterInfo" id="human" class="hollow button" href="#" type="button">Human</button><br>
                     <input type="radio" name="class" value="Tiefling"> 
-                    <button id="tiefling" class="hollow button" href="#" type="button">Tiefling</button><br>
+                    <button data-open="characterInfo" id="tiefling" class="hollow button" href="#" type="button">Tiefling</button><br>
                     
                 </form>
-                <div class="reveal" id="characterInfo" data-reveal>
-                    <h1 class="title"></h1>
-                    <p class="lead"></p>
-                    <p class="body"></p>
-                    <button class="close-button" data-close aria-label="Close modal" type="button">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
             </div>
-        </div>
-        
+    <!--Modal-->
+         </div>
+          <div class="reveal" id="characterInfo" data-reveal>
+            <h1 class="title">Race/Class name:</h1>
+            <p class="lead">Info</p>
+            <p class="body"></p>
+            <p class="body2"></p>
+            <button class="close-button" data-close aria-label="Close modal" type="button">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div> 
+
     <button id="submit" class="button" href="#">Submit</button>
 
     <!-- Compressed JavaScript -->
-    <script
-		src="https://code.jquery.com/jquery-3.4.1.min.js"
-		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossorigin="anonymous">
-    </script>
-    <script 
-        src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js" 
-        integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA==" crossorigin="anonymous">
-    </script>
     
 <script>
     
@@ -109,62 +114,51 @@
             method: "GET"
         }).then(function(response) {
             races = response;
-            console.log(races);
-        }).then($.ajax({
+            console.log("races",races);
+        });
+        $.ajax({
             url: "https://api.open5e.com/classes/",
             method: "GET"
-        })).then(function(response) {
+        }).then(function(response) {
             classes = response;
-        }).then(function(response){
-    
-        var modalTitle = $("#modalTitle");
-        // var raceInfo = {
-            // name,desc,alignment,traits};
-
-        var raceInfo = {
-            name: races.name,
-            desc: races.desc,
-            alignment: races.alignment,
-            traits: races.traits
-        };
-
-        $(".modalTitle").text(raceInfo.name);
-        $(".body").text(raceInfo.desc);
-        $(".lead").text(raceInfo.alignment);
-
-        // $("#dragonborn").click(function() { //when clicked, log our response
-        // console.log(races,[4]);
-        // });
-        // $("#cleric").click(function() { //when clicked, log our response
-        // console.log(classes);
-        // });
-        // $("#submit").click(function() { //when clicked, log our response
-        // console.log(races);
-        // });
+            console.log("classes",classes);
+        });
 
         var raceForm = $(".races").children()[1];
         var raceButtons = $(raceForm).children(".button");
+        var classForm = $(".classes").children()[1];
+        var classButtons = $(classForm).children(".button");
         // console.log(raceButtons);
         $(raceButtons).on("click", fetchData);
+        $(classButtons).on("click", fetchData);
 
         function fetchData(){
-            // console.log($(this).text());
             var thisButtonVal = $(this).text();
-            // console.log(races);
-            var raceNames = races.results;
-            // console.log(raceNames);
-            for (var i=0; i<raceNames.length; i++){
-                if (thisButtonVal === raceNames[i].name){
-                    // console.log(raceNames[i].desc);
-                    // console.log(raceNames[i].alignment);
+            console.log(thisButtonVal);
+            console.log($(this));
+            var raceObject = races.results;
+            var classObject = classes.results;
+            console.log(classObject);
+            for (var i=0; i<raceObject.length; i++){
+                if (thisButtonVal === raceObject[i].name){
+                    $(".title").text(raceObject[i].name);
+                    $(".lead").text(raceObject[i].desc);
+                    $(".body").text(raceObject[i].alignment);
+                    $(".body2").text(raceObject[i].size);
+                }
+            }
 
+            for (var i=0; i<classObject.length; i++){
+                if (thisButtonVal === classObject[i].name){
+                    $(".title").text(classObject[i].name);
+                    $(".body").text(classObject[i].desc);
                 }
             }
         }
     });
-});
 
 </script>
+
 <script src="./script.js"></script>
 
 </body>
