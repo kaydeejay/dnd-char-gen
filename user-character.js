@@ -20,7 +20,7 @@ $(document).ready(function(){
         var checkedRaceRad = $('input[name="race"]:checked', '#racesForm').attr("data-val");
         localStorage.setItem("class", checkedClassRad);
         localStorage.setItem("race", checkedRaceRad);
-        window.open("./page-2.html");
+        window.open("./page-2.html", "_self");
     }
 
     // save and continue function on page 2
@@ -34,7 +34,7 @@ $(document).ready(function(){
             var statSelected = $(statSelectOption).find("option:selected").attr("value");
             localStorage.setItem(statSelected, statValue);
         }
-        window.open("./character-sheet.html");
+        window.open("./character-sheet.html", "_self");
     }
 
     function saveAndContinueStand(){
