@@ -2,7 +2,7 @@
 
 Original version by Kevin Devine-Jones, Cory Suida and Anya Laudenslager
 This project was originally built for a homework assignment for the UPenn LPS Coding Bootcamp.
-This version is Kevin Devine-Jones's fork from the original project, which he has continued to maintain on his own time.
+This version is my (Kevin's) fork from the original project, which I will continue to build/maintain on my own time.
 
 
 ##Overview
