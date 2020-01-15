@@ -1,23 +1,20 @@
-# project-1-D-D-generator
+# Dungeons and Dragons 5th Edition Character Generator
 
-Dungeons and Dragons Character Generator
-by Kevin-Devine Jones, Cory Suida and Anya Laudenslager
-Jan 13, Project 1
+Original version by Kevin Devine-Jones, Cory Suida and Anya Laudenslager
+This project was originally built for a homework assignment for the UPenn LPS Coding Bootcamp.
+This version is Kevin Devine-Jones's fork from the original project, which he has continued to maintain on his own time.
+
 
 ##Overview
-D&D Character Generator is an application that simplifies the process of creating a unique character for the user to play within a Dungeons and Dragons RPG (Role playing game). It utilizes a simple, step-by-step approach to helping the user build a basic character sheet within the D&D rule base by using official online databases (APIs) for D&D. This application was designed as a bare-bones introduction to character building by laying out the class, race and stats for the user to choose from and a completed character sheet with all the information the user has input and selected.
+This D&D Character Generator is an application that simplifies the process of creating a unique character for the user to play within a Dungeons and Dragons TTRPG (Table-Top Role playing game). It utilizes a simple, step-by-step approach to helping the user build a basic character sheet within the D&D rule base by using official online databases (APIs) for D&D. This application was designed as a bare-bones introduction to character building by laying out the class, race and stats for the user to choose from and a completed character sheet with all the information the user has input and selected.
 
 ##Technologies Used
 Foundation 6
 HTML, CSS, JAVASCRIPT, JQUERY
 Open5e API
-Diceful API
 
-##User Stories Completed
+##User Stories
 
-As a user I should be able to lookup class and race info and then make a selection for my character
-As a user I should be able to generate stats for my character using multiple automated options (random roll, standard array, point by)
-As a user I should be able to have a completed character sheet with all the information previously selected
-
-##Backlog
-A link for D&D Character Generator: https://alauden7.github.io/project-1-D-D-generator/
+As a new player with an interest in D&D but without much experience,
+I want an application that will walk me through the complicated process of creating a character
+So that I can quickly join a new game.
