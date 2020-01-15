@@ -5,8 +5,6 @@
 $(document).ready(function(){
     
     // user character object
-    var strScore = localStorage.getItem("STR");
-    console.log(strScore);
     
     $("#saveRaceClass").on("click", saveAndContinue1);
     $("#saveRoll").on("click", saveAndContinueRoll);

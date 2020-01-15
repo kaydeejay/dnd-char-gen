@@ -13,17 +13,27 @@ $(document).ready(function(){
         if (thisBtnType === "race") {
             for (var i=0; i<races.length; i++){
                 if (races[i].slug === thisBtnVal){
+                    var descConverter = new showdown.Converter(),
+                        descText      = races[i].desc,
+                        descHtml      = descConverter.makeHtml(descText);
+                    var traitsConverter = new showdown.Converter(),
+                        traitsText      = races[i].traits,
+                        traitsHtml      = traitsConverter.makeHtml(traitsText);
                     $(modalTitle).text(races[i].name);
-                    $(modalSimpleDesc).text(races[i].desc);
-                    $(modalTraitsDesc).text(races[i].traits);
+                    $(modalSimpleDesc).html(descHtml);
+                    $(modalTraitsDesc).html(traitsHtml);
                 }
             }
         } else if (thisBtnType === "class") {
             for (var i=0; i<classes.length; i++){
                 if (classes[i].slug === thisBtnVal){
-                    $(modalTitle).text(classes[i].name);
+                    var converter = new showdown.Converter(),
+                        text      = classes[i].desc,
+                        html      = converter.makeHtml(text);
+                    console.log(html);
                     $(modalSimpleDesc).text("");
-                    $(modalTraitsDesc).text(classes[i].desc);
+                    $(modalTitle).text(classes[i].name);
+                    $(modalTraitsDesc).html(html);
                 }
             }
         }
