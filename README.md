@@ -5,15 +5,15 @@ This project was originally built for a homework assignment for the UPenn LPS Co
 This version is my (Kevin's) fork from the original project, which I will continue to build/maintain on my own time.
 
 
-##Overview
+## Overview
 This D&D Character Generator is an application that simplifies the process of creating a unique character for the user to play within a Dungeons and Dragons TTRPG (Table-Top Role playing game). It utilizes a simple, step-by-step approach to helping the user build a basic character sheet within the D&D rule base by using official online databases (APIs) for D&D. This application was designed as a bare-bones introduction to character building by laying out the class, race and stats for the user to choose from and a completed character sheet with all the information the user has input and selected.
 
-##Technologies Used
+## Technologies Used
 Foundation 6
 HTML, CSS, JAVASCRIPT, JQUERY
 Open5e API
 
-##User Stories
+## User Stories
 
 As a new player with an interest in D&D but without much experience,
 I want an application that will walk me through the complicated process of creating a character
